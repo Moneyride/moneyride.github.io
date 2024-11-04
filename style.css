@@ -248,3 +248,14 @@ html {
 .social-icon:hover {
     transform: scale(1.1);
 }
+@media (max-width: 400px) {
+    .over-mij-content {
+        max-width: 100%; /* Zorg ervoor dat de tekst het scherm vult */
+        text-align: center; /* Centreer de tekst op mobiele apparaten */
+    }
+
+    .profile-image {
+        max-width: 100%; /* Zorg ervoor dat de afbeelding niet groter is dan het scherm */
+        height: auto; /* Houd de hoogte in verhouding tot de breedte */
+    }
+}
