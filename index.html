@@ -27,14 +27,17 @@
         </div>
     </header>
 
-    <!-- Over Mij sectie -->
     <section class="over-mij">
-        <img src="DSC03256.jpg" alt="Profielafbeelding" class="profile-image">
-        <div class="over-mij-content">
-            <h2>Over Mij</h2>
-            <p>Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.</p>
+        <div class="over-mij-content-wrapper">
+            <img src="DSC03256.jpg" alt="Profielafbeelding" class="profile-image">
+            <div class="over-mij-content">
+                <h2 class="over-mij-titel">Over Mij</h2> <!-- Titel staat boven de tekst -->
+                <p class="dynamic-text" id="dynamic-text">Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.</p>
+            </div>
         </div>
     </section>
+    
+    
 
     <!-- Testimonials sectie -->
     <section id="testimonials">
@@ -56,37 +59,78 @@
             <textarea name="bericht" placeholder="Jouw bericht" rows="5" required></textarea>
             <button type="submit">Verstuur</button>
         </form>
+
+        <!-- Sociale media links -->
+        <div class="social-media">
+            <a href="https://www.instagram.com/timelix.media" target="_blank">
+                <img src="Images/instagram-brands-solid.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com/in/ChrisReichgelt" target="_blank">
+                <img src="Images/linkedin-in-brands-solid.svg" alt="LinkedIn" class="social-icon">
+            </a>
+        </div>
     </section>
 
     <script>
+        // Slideshow
         const images = document.querySelectorAll(".slideshow-image");
         const totalImages = images.length;
         let currentIndex = 0;
-    
+
         // Functie om de slideshow te updaten en het schuifeffect toe te passen
         function updateSlide() {
             const slideshowWrapper = document.getElementById("slideshow-wrapper");
             const offset = -currentIndex * 100; // Bereken de offset in percentage
             slideshowWrapper.style.transform = `translateX(${offset}vw)`;
         }
-    
+
         // Functie voor de volgende afbeelding
         function nextImage() {
             currentIndex = (currentIndex + 1) % totalImages;
             updateSlide();
         }
-    
+
         // Functie voor de vorige afbeelding
         function prevImage() {
             currentIndex = (currentIndex - 1 + totalImages) % totalImages;
             updateSlide();
         }
-    
+
         // Initialiseer met de eerste afbeelding in het zicht
         updateSlide();
-    </script>
-    
-    
+        setInterval(nextImage, 4000); // Wissel elke 4 seconden
 
+        // Preload afbeeldingen
+        images.forEach((image) => {
+            const img = new Image();
+            img.src = image.src; // Laad elke afbeelding
+        });
+
+        const dynamicTexts = [
+            "Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.",
+            "Ik ben gepassioneerd door cinematografie en vertel verhalen die inspireren en verbinden.",
+            "Mijn werk heeft mij de kans gegeven om met verschillende klanten en projecten samen te werken.",
+            "Als zzp'er ben ik flexibel en kan ik me aanpassen aan de behoeften van elke productie."
+        ];
+
+        let dynamicIndex = 0; // Wijzig de naam van de index
+
+        function changeText() {
+            const dynamicTextElement = document.getElementById("dynamic-text");
+            dynamicTextElement.style.opacity = 0; // Maak de huidige tekst onzichtbaar
+
+            setTimeout(() => {
+                dynamicIndex = (dynamicIndex + 1) % dynamicTexts.length; // Volgende index
+                dynamicTextElement.innerText = dynamicTexts[dynamicIndex];
+                dynamicTextElement.style.opacity = 1; // Maak de nieuwe tekst weer zichtbaar
+            }, 500); // Wacht een halve seconde voor de overgang
+        }
+
+        // Wijzig de tekst elke 5 seconden
+        setInterval(changeText, 5000); // 5000 milliseconden = 5 seconden
+
+        // Initialiseer met de eerste tekst
+        changeText();
+    </script>
 </body>
 </html>

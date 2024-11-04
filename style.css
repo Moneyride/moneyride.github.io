@@ -19,14 +19,13 @@ body {
 }
 
 .logo {
-    position: fixed; /* Zorgt ervoor dat het logo vast blijft staan bij scrollen */
-    top: 10px; /* Plaatst het logo iets onder de bovenkant van de pagina */
-    left:50%; /* Plaatst het logo iets vanaf de linkerkant */
+    position: fixed;
+    top: 10px;
+    left: 50%;
     transform: translateX(-50%);
-    max-width: 150px; /* Pas de grootte van het logo aan naar wens */
-    z-index: 1000; /* Houdt het logo boven andere elementen */
+    max-width: 150px;
+    z-index: 1000;
 }
-
 
 .hero-section h1 {
     font-size: 2.5em;
@@ -41,23 +40,50 @@ body {
 /* Over Mij sectie */
 .over-mij {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
+    justify-content: center; /* Centreert de inhoud binnen de sectie */
     margin: 40px auto;
-    gap: 20px;
 }
 
+/* Wrapper voor de afbeelding en tekst */
+.over-mij-content-wrapper {
+    display: flex;
+    align-items: flex-start; /* Zorgt ervoor dat de afbeelding en tekst bovenaan uitgelijnd zijn */
+    max-width: 400px; /* Bepaalt de maximale breedte van de wrapper */
+    gap: 20px; /* Ruimte tussen afbeelding en tekst */
+}
+
+/* Stijl voor de profielafbeelding */
 .profile-image {
-    max-width: 200px;
+    max-width: 200px; /* Max breedte van de afbeelding */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling voor de content naast de afbeelding */
 .over-mij-content {
-    max-width: 400px;
-    text-align: left;
+    max-width: 200px; /* Max breedte voor de tekstsectie */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Zorgt ervoor dat de titel en tekst links zijn uitgelijnd */
+    margin-left: 20px; /* Voeg hier een offset toe om ruimte te maken tussen de afbeelding en de tekst */
 }
+
+/* Stijl voor de titel "Over Mij" */
+.over-mij-titel {
+    font-size: 2em; /* Grotere tekstgrootte voor de titel */
+    margin: 0; /* Verwijder standaard marge */
+    margin-bottom: 10px; /* Ruimte onder de titel */
+    text-align: center; /* Centreert de titel binnen het tekstblok */
+    width: 100%; /* Zorgt ervoor dat de titel het volledige beschikbare breedte van het tekstblok gebruikt */
+}
+
+
+/* Styling voor de wisselende tekst */
+.dynamic-text {
+    font-size: 1em;
+    transition: opacity 0.5s ease;
+}
+
 
 /* Projecten sectie */
 .projecten {
@@ -94,58 +120,57 @@ body {
 }
 
 .testimonial-slider {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
     font-style: italic;
     color: #555;
 }
 
 blockquote {
-    margin: 30px 0; /* Verhoog de verticale marge tussen testimonials */
-    padding: 20px; /* Voeg meer padding toe voor ademruimte */
+    margin: 30px 0;
+    padding: 20px;
     background: #f1f1f1;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Zachte transitie voor hover-effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover-effect voor testimonials */
 blockquote:hover {
-    transform: scale(1.05); /* Vergroot de testimonial bij hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Versterk de schaduw bij hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Contact Sectie */
 .contact {
-    background-color: #f9f9f9; /* Achtergrondkleur voor de contactsectie */
-    padding: 40px 20px; /* Ruimte binnen de sectie */
-    text-align: center; /* Centreer de tekst */
-    max-width: 600px; /* Max breedte van de contactsectie */
-    margin: 0 auto; /* Centreer de sectie op de pagina */
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .contact h2 {
-    font-size: 2em; /* Grootte van de koptekst */
-    margin-bottom: 20px; /* Ruimte onder de koptekst */
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .contact p {
-    font-size: 1.2em; /* Tekstgrootte */
-    margin-bottom: 20px; /* Ruimte onder de beschrijving */
+    font-size: 1.2em;
+    margin-bottom: 20px;
 }
 
 .contact form {
     display: flex;
-    flex-direction: column; /* Zet de velden onder elkaar */
-    gap: 10px; /* Ruimte tussen de velden */
+    flex-direction: column;
+    gap: 10px;
 }
 
 .contact input, .contact textarea {
-    width: 100%; /* Breedte van de velden */
-    padding: 10px; /* Ruimte binnen de velden */
-    font-size: 1em; /* Tekstgrootte */
-    border: 1px solid #ccc; /* Grijze rand */
-    border-radius: 5px; /* Ronde hoeken */
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     box-sizing: border-box;
 }
 
@@ -153,19 +178,20 @@ blockquote:hover {
     padding: 12px;
     font-size: 1.2em;
     color: white;
-    background-color: #333; /* Aanpassen naar wens */
+    background-color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .contact button:hover {
-    background-color: #555; /* Donkerdere kleur bij hover */
+    background-color: #555;
 }
 
 html {
     scroll-behavior: smooth;
 }
+
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -176,8 +202,8 @@ html {
 
 .slideshow-wrapper {
     display: flex;
-    transition: transform 0.5s ease; /* Gladde overgang van 0.5s */
-    width: 300%; /* Houdt alle drie afbeeldingen in een rij */
+    transition: transform 0.5s ease;
+    width: 300%;
 }
 
 .slideshow-image {
@@ -207,3 +233,18 @@ html {
     right: 10px;
 }
 
+.social-media {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.social-icon {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
