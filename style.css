@@ -13,20 +13,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh; /* Gebruik min-height in plaats van height */
     position: relative;
     overflow: hidden;
 }
 
 .image-wrapper {
     position: relative;
-    max-width: 80vw;
+    width: 80%; /* Maak de breedte percentage om beter te schalen */
     max-height: 80vh;
-    border: 3px solid #ccc; /* Dun, licht kader */
+    border: 3px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtiele schaduw */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
+
 
 .hero-image {
     width: 100%;
@@ -136,7 +137,7 @@ body {
 }
 
 .specialiteit-title {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #333;
     margin: 0.5rem 0; /* Extra ruimte boven en onder de titel */
     font-weight: bold; /* Titel dik gedrukt */
