@@ -40,50 +40,58 @@ body {
 /* Over Mij sectie */
 .over-mij {
     display: flex;
-    justify-content: center; /* Centreert de inhoud binnen de sectie */
-    margin: 40px auto;
+    justify-content: center;
+    margin: 80px auto;
 }
 
 /* Wrapper voor de afbeelding en tekst */
 .over-mij-content-wrapper {
     display: flex;
-    align-items: flex-start; /* Zorgt ervoor dat de afbeelding en tekst bovenaan uitgelijnd zijn */
-    max-width: 400px; /* Bepaalt de maximale breedte van de wrapper */
-    gap: 20px; /* Ruimte tussen afbeelding en tekst */
+    align-items: flex-start;
+    max-width: 400px;
+    gap: 20px;
 }
 
 /* Stijl voor de profielafbeelding */
 .profile-image {
-    max-width: 200px; /* Max breedte van de afbeelding */
+    max-width: 200px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Styling voor de content naast de afbeelding */
 .over-mij-content {
-    max-width: 200px; /* Max breedte voor de tekstsectie */
+    max-width: 200px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Zorgt ervoor dat de titel en tekst links zijn uitgelijnd */
-    margin-left: 20px; /* Voeg hier een offset toe om ruimte te maken tussen de afbeelding en de tekst */
+    align-items: flex-start;
+    margin-left: 20px;
 }
 
 /* Stijl voor de titel "Over Mij" */
 .over-mij-titel {
-    font-size: 2em; /* Grotere tekstgrootte voor de titel */
-    margin: 0; /* Verwijder standaard marge */
-    margin-bottom: 10px; /* Ruimte onder de titel */
-    text-align: center; /* Centreert de titel binnen het tekstblok */
-    width: 100%; /* Zorgt ervoor dat de titel het volledige beschikbare breedte van het tekstblok gebruikt */
+    font-size: 2em;
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
 }
-
 
 /* Styling voor de wisselende tekst */
 .dynamic-text {
     font-size: 1em;
     transition: opacity 0.5s ease;
+    height: 5em;
+    overflow: visible;
 }
 
+#dynamic-text {
+    transition: transform 0.3s ease;
+}
+
+#dynamic-text:hover {
+    transform: scale(1.1);
+}
 
 /* Projecten sectie */
 .projecten {
@@ -109,6 +117,11 @@ body {
 }
 
 /* Testimonials sectie */
+
+#testimonials {
+    display: none;
+}
+
 #testimonials {
     background-color: #ffffff;
     padding: 40px 20px;
@@ -192,6 +205,7 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Slideshow container */
 .slideshow-container {
     position: relative;
     width: 100%;
@@ -248,14 +262,15 @@ html {
 .social-icon:hover {
     transform: scale(1.1);
 }
+
 @media (max-width: 400px) {
     .over-mij-content {
-        max-width: 100%; /* Zorg ervoor dat de tekst het scherm vult */
-        text-align: center; /* Centreer de tekst op mobiele apparaten */
+        max-width: 100%;
+        text-align: center;
     }
 
     .profile-image {
-        max-width: 100%; /* Zorg ervoor dat de afbeelding niet groter is dan het scherm */
-        height: auto; /* Houd de hoogte in verhouding tot de breedte */
+        max-width: 100%;
+        height: auto;
     }
 }

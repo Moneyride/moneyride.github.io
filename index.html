@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Reichgelt - Cameraman en Zzp'er</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 <body id="top">
-    
+
     <!-- Hero sectie met logo en achtergrondafbeelding -->
     <header class="hero-section">
         <div class="overlay">
             <a href="#top" class="logo-link">
-                <img src="timelix.png" alt="Logo" class="logo">
+                <img src="logo/timelix.png" alt="Logo" class="logo">
             </a>
         </div>
 
         <div class="slideshow-container">
             <div class="slideshow-wrapper" id="slideshow-wrapper">
-                <img src="Deer_in_light_rain_spring.jpg" alt="Foto 1" class="slideshow-image">
-                <img src="Autmn_trees.jpg" alt="Foto 2" class="slideshow-image">
-                <img src="Skyline_NYC.jpg" alt="Foto 3" class="slideshow-image">
+                <img src="Foto's-me/header/IMG_E7766.jpg" alt="Foto 1" class="slideshow-image">
+                <img src="Foto's-me/header/FXJT8677.jpg" alt="Foto 2" class="slideshow-image">
+                <img src="Foto's-me/header/IMG_0082.CR2.jpg" alt="Foto 3" class="slideshow-image">
             </div>
             <button onclick="prevImage()" class="slideshow-button prev">&lt;</button>
             <button onclick="nextImage()" class="slideshow-button next">&gt;</button>
@@ -31,15 +29,13 @@
 
     <section class="over-mij">
         <div class="over-mij-content-wrapper">
-            <img src="DSC03256.jpg" alt="Profielafbeelding" class="profile-image">
+            <img src="Foto's-me/DSC03256.jpg" alt="Profielafbeelding" class="profile-image">
             <div class="over-mij-content">
-                <h2 class="over-mij-titel">Over Mij</h2> <!-- Titel staat boven de tekst -->
+                <h2 class="over-mij-titel">Over Mij</h2>
                 <p class="dynamic-text" id="dynamic-text">Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.</p>
             </div>
         </div>
     </section>
-    
-    
 
     <!-- Testimonials sectie -->
     <section id="testimonials">
@@ -55,11 +51,17 @@
     <section class="contact">
         <h2>Contact</h2>
         <p>Wil je samenwerken of heb je vragen? Neem gerust contact op!</p>
-        <form action="#" method="POST">
-            <input type="text" name="naam" placeholder="Jouw naam" required>
-            <input type="email" name="email" placeholder="Jouw e-mailadres" required>
-            <textarea name="bericht" placeholder="Jouw bericht" rows="5" required></textarea>
-            <button type="submit">Verstuur</button>
+        
+        <form id="contactForm" action="https://formspree.io/f/mdkogoon" method="POST">
+            <label>
+                Your email:
+                <input type="email" name="email">
+            </label>
+            <label>
+                Your message:
+                <textarea name="message"></textarea>
+            </label>
+            <button type="submit">Send</button>
         </form>
 
         <!-- Sociale media links -->
@@ -78,34 +80,37 @@
         const images = document.querySelectorAll(".slideshow-image");
         const totalImages = images.length;
         let currentIndex = 0;
+        let imageInterval;
 
-        // Functie om de slideshow te updaten en het schuifeffect toe te passen
         function updateSlide() {
             const slideshowWrapper = document.getElementById("slideshow-wrapper");
-            const offset = -currentIndex * 100; // Bereken de offset in percentage
+            const offset = -currentIndex * 100;
             slideshowWrapper.style.transform = `translateX(${offset}vw)`;
         }
 
-        // Functie voor de volgende afbeelding
         function nextImage() {
             currentIndex = (currentIndex + 1) % totalImages;
             updateSlide();
         }
 
-        // Functie voor de vorige afbeelding
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateSlide();
+        function startImageSlideshow() {
+            imageInterval = setInterval(nextImage, 4000);
         }
 
-        // Initialiseer met de eerste afbeelding in het zicht
-        updateSlide();
-        setInterval(nextImage, 4000); // Wissel elke 4 seconden
+        function stopImageSlideshow() {
+            clearInterval(imageInterval);
+        }
 
-        // Preload afbeeldingen
+        updateSlide();
+        startImageSlideshow();
+
+        const slideshowContainer = document.querySelector(".slideshow-container");
+        slideshowContainer.addEventListener("mouseenter", stopImageSlideshow);
+        slideshowContainer.addEventListener("mouseleave", startImageSlideshow);
+
         images.forEach((image) => {
             const img = new Image();
-            img.src = image.src; // Laad elke afbeelding
+            img.src = image.src;
         });
 
         const dynamicTexts = [
@@ -115,24 +120,47 @@
             "Als zzp'er ben ik flexibel en kan ik me aanpassen aan de behoeften van elke productie."
         ];
 
-        let dynamicIndex = 0; // Wijzig de naam van de index
+        let dynamicIndex = 0;
+        let textInterval;
 
         function changeText() {
             const dynamicTextElement = document.getElementById("dynamic-text");
-            dynamicTextElement.style.opacity = 0; // Maak de huidige tekst onzichtbaar
+            dynamicTextElement.style.opacity = 0;
 
             setTimeout(() => {
-                dynamicIndex = (dynamicIndex + 1) % dynamicTexts.length; // Volgende index
+                dynamicIndex = (dynamicIndex + 1) % dynamicTexts.length;
                 dynamicTextElement.innerText = dynamicTexts[dynamicIndex];
-                dynamicTextElement.style.opacity = 1; // Maak de nieuwe tekst weer zichtbaar
-            }, 500); // Wacht een halve seconde voor de overgang
+                dynamicTextElement.style.opacity = 1;
+            }, 500);
         }
 
-        // Wijzig de tekst elke 5 seconden
-        setInterval(changeText, 5000); // 5000 milliseconden = 5 seconden
+        function startTextChange() {
+            textInterval = setInterval(changeText, 3000);
+        }
 
-        // Initialiseer met de eerste tekst
+        function stopTextChange() {
+            clearInterval(textInterval);
+        }
+
         changeText();
+        startTextChange();
+
+        const dynamicTextElement = document.getElementById("dynamic-text");
+        dynamicTextElement.addEventListener("mouseenter", stopTextChange);
+        dynamicTextElement.addEventListener("mouseleave", startTextChange);
+
+           // JavaScript om alleen te markeren als het formulier wordt verzonden
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+        form.dataset.submitting = "true";
+    });
+
+    window.addEventListener('beforeunload', (event) => {
+        if (!form.dataset.submitting) {
+            event.preventDefault();
+            event.returnValue = '';
+        }
+    });
     </script>
 </body>
 </html>
