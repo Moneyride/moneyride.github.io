@@ -55,11 +55,11 @@
         <form id="contactForm" action="https://formspree.io/f/mdkogoon" method="POST">
             <label>
                 Your email:
-                <input type="email" name="email">
+                <input type="email" name="email" required>
             </label>
             <label>
                 Your message:
-                <textarea name="message"></textarea>
+                <textarea name="message" required></textarea>
             </label>
             <button type="submit">Send</button>
         </form>
@@ -93,6 +93,11 @@
             updateSlide();
         }
 
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateSlide();
+        }
+
         function startImageSlideshow() {
             imageInterval = setInterval(nextImage, 4000);
         }
@@ -107,11 +112,6 @@
         const slideshowContainer = document.querySelector(".slideshow-container");
         slideshowContainer.addEventListener("mouseenter", stopImageSlideshow);
         slideshowContainer.addEventListener("mouseleave", startImageSlideshow);
-
-        images.forEach((image) => {
-            const img = new Image();
-            img.src = image.src;
-        });
 
         const dynamicTexts = [
             "Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.",
@@ -149,18 +149,18 @@
         dynamicTextElement.addEventListener("mouseenter", stopTextChange);
         dynamicTextElement.addEventListener("mouseleave", startTextChange);
 
-           // JavaScript om alleen te markeren als het formulier wordt verzonden
-    const form = document.getElementById('contactForm');
-    form.addEventListener('submit', (e) => {
-        form.dataset.submitting = "true";
-    });
+        // JavaScript om alleen te markeren als het formulier wordt verzonden
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            form.dataset.submitting = "true";
+        });
 
-    window.addEventListener('beforeunload', (event) => {
-        if (!form.dataset.submitting) {
-            event.preventDefault();
-            event.returnValue = '';
-        }
-    });
+        window.addEventListener('beforeunload', (event) => {
+            if (!form.dataset.submitting) {
+                event.preventDefault();
+                event.returnValue = '';
+            }
+        });
     </script>
 </body>
 </html>
