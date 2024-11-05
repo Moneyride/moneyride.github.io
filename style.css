@@ -80,7 +80,7 @@ body {
     width: 100%;
 }
 /* Specifieke stijlen voor mobiele apparaten */
-@media (max-width: 600px) {
+@media (max-width: 400px) {
     .over-mij-content-wrapper {
         flex-direction: column; /* Zorg ervoor dat de elementen onder elkaar staan */
         align-items: center; /* Centreren op mobiele schermen */
