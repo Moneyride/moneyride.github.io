@@ -1,4 +1,3 @@
-@ -0,0 +1,92 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -16,16 +15,7 @@
                 <img src="timelix.png" alt="Logo" class="logo">
             </a>
         </div>
-
-        <div class="slideshow-container">
-            <div class="slideshow-wrapper" id="slideshow-wrapper">
-                <img src="Deer_in_light_rain_spring.jpg" alt="Foto 1" class="slideshow-image">
-                <img src="Autmn_trees.jpg" alt="Foto 2" class="slideshow-image">
-                <img src="Skyline_NYC.jpg" alt="Foto 3" class="slideshow-image">
-            </div>
-            <button onclick="prevImage()" class="slideshow-button prev">&lt;</button>
-            <button onclick="nextImage()" class="slideshow-button next">&gt;</button>
-        </div>
+        <img src="Skyline_NYC.jpg" alt="Hero-afbeelding" class="hero-image">
     </header>
 
     <!-- Over Mij sectie -->
@@ -58,36 +48,6 @@
             <button type="submit">Verstuur</button>
         </form>
     </section>
-
-    <script>
-        const images = document.querySelectorAll(".slideshow-image");
-        const totalImages = images.length;
-        let currentIndex = 0;
     
-        // Functie om de slideshow te updaten en het schuifeffect toe te passen
-        function updateSlide() {
-            const slideshowWrapper = document.getElementById("slideshow-wrapper");
-            const offset = -currentIndex * 100; // Bereken de offset in percentage
-            slideshowWrapper.style.transform = `translateX(${offset}vw)`;
-        }
-    
-        // Functie voor de volgende afbeelding
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateSlide();
-        }
-    
-        // Functie voor de vorige afbeelding
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateSlide();
-        }
-    
-        // Initialiseer met de eerste afbeelding in het zicht
-        updateSlide();
-    </script>
-    
-    
-
 </body>
 </html>
