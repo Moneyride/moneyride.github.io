@@ -1,33 +1,93 @@
+@ -0,0 +1,92 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onderhoud</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2em;
-            text-align: center;
-        }
-    </style>
+    <title>Chris Reichgelt - Cameraman en Zzp'er</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Onderhoud in uitvoering</h1>
-    <p>Onze website is tijdelijk offline voor onderhoud. We zijn snel weer terug!</p>
+<body id="top">
+    
+    <!-- Hero sectie met logo en achtergrondafbeelding -->
+    <header class="hero-section">
+        <div class="overlay">
+            <a href="#top" class="logo-link">
+                <img src="timelix.png" alt="Logo" class="logo">
+            </a>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slideshow-wrapper" id="slideshow-wrapper">
+                <img src="Deer_in_light_rain_spring.jpg" alt="Foto 1" class="slideshow-image">
+                <img src="Autmn_trees.jpg" alt="Foto 2" class="slideshow-image">
+                <img src="Skyline_NYC.jpg" alt="Foto 3" class="slideshow-image">
+            </div>
+            <button onclick="prevImage()" class="slideshow-button prev">&lt;</button>
+            <button onclick="nextImage()" class="slideshow-button next">&gt;</button>
+        </div>
+    </header>
+
+    <!-- Over Mij sectie -->
+    <section class="over-mij">
+        <img src="DSC03256.jpg" alt="Profielafbeelding" class="profile-image">
+        <div class="over-mij-content">
+            <h2>Over Mij</h2>
+            <p>Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials sectie -->
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-slider">
+            <blockquote>"Chris is een geweldige cameraman die altijd professioneel werkt."</blockquote>
+            <blockquote>"Zijn creativiteit en oog voor detail hebben ons project echt versterkt."</blockquote>
+            <blockquote>"Zeer flexibel en makkelijk om mee samen te werken."</blockquote>
+        </div>
+    </section>
+
+    <!-- Contact Sectie -->
+    <section class="contact">
+        <h2>Contact</h2>
+        <p>Wil je samenwerken of heb je vragen? Neem gerust contact op!</p>
+        <form action="#" method="POST">
+            <input type="text" name="naam" placeholder="Jouw naam" required>
+            <input type="email" name="email" placeholder="Jouw e-mailadres" required>
+            <textarea name="bericht" placeholder="Jouw bericht" rows="5" required></textarea>
+            <button type="submit">Verstuur</button>
+        </form>
+    </section>
+
+    <script>
+        const images = document.querySelectorAll(".slideshow-image");
+        const totalImages = images.length;
+        let currentIndex = 0;
+    
+        // Functie om de slideshow te updaten en het schuifeffect toe te passen
+        function updateSlide() {
+            const slideshowWrapper = document.getElementById("slideshow-wrapper");
+            const offset = -currentIndex * 100; // Bereken de offset in percentage
+            slideshowWrapper.style.transform = `translateX(${offset}vw)`;
+        }
+    
+        // Functie voor de volgende afbeelding
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateSlide();
+        }
+    
+        // Functie voor de vorige afbeelding
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateSlide();
+        }
+    
+        // Initialiseer met de eerste afbeelding in het zicht
+        updateSlide();
+    </script>
+    
+    
+
 </body>
 </html>
