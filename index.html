@@ -41,10 +41,17 @@
     <section class="contact">
         <h2>Contact</h2>
         <p>Wil je samenwerken of heb je vragen? Neem gerust contact op!</p>
-        <form action="#" method="POST">
-            <input type="text" name="naam" placeholder="Jouw naam" required>
-            <input type="email" name="email" placeholder="Jouw e-mailadres" required>
-            <textarea name="bericht" placeholder="Jouw bericht" rows="5" required></textarea>
+        <form action="https://formspree.io/f/mdkogoon" method="POST">
+            <label for="naam">Naam:</label>
+            <input type="text" id="naam" name="naam" placeholder="Jouw naam" required>
+            
+            <label for="email">E-mailadres:</label>
+            <input type="email" id="email" name="email" placeholder="Jouw e-mailadres" required>
+            
+            <label for="bericht">Bericht:</label>
+            <textarea id="bericht" name="message" placeholder="Jouw bericht" rows="5" required></textarea>
+            
+            <!-- Optionele reCAPTCHA wordt door Formspree toegevoegd -->
             <button type="submit">Verstuur</button>
         </form>
     </section>
