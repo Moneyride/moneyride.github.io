@@ -37,11 +37,13 @@ html {
 /* Over Mij sectie */
 .over-mij {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 600px;
     margin: 40px auto;
-    gap: 40px;
+    gap: 20px;
+    text-align: center;
 }
 
 .profile-image {
@@ -51,8 +53,10 @@ html {
 }
 
 .over-mij-content {
-    max-width: 400px;
-    text-align: left;
+    max-width: 600px;
+    text-align: centre;
+    margin: 40px auto;
+    gap: 20px;
 }
 
 /* Testimonials sectie */
