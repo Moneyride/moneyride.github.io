@@ -145,16 +145,14 @@ blockquote {
 @media screen and (max-width: 768px) {
     /* Hero sectie */
     .hero-section {
-        height: 100vh;
         position: relative;
-        overflow: hidden;
+        height: 100vh; /* Vult het scherm */
     }
 
     .hero-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+        position: center;
+        object-fit: absolute; /* Zorgt ervoor dat de afbeelding de container vult */
+        object-position: center; /* Zorgt ervoor dat het midden van de afbeelding wordt weergegeven */
     }
 
     .logo {
