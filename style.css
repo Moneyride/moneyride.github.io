@@ -145,7 +145,7 @@ blockquote {
 @media screen and (max-width: 768px) {
     /* Hero sectie */
     .hero-section {
-        height: 50vh;
+        height: 100vh;
     }
 
     .logo {
