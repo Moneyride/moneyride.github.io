@@ -163,7 +163,8 @@ blockquote {
     }
 
     .over-mij-content {
-        max-width: 95%;
+        max-width: 100%;
+        padding: 20px;
     }
 
     /* Testimonials */
