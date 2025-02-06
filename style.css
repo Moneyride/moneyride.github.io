@@ -203,7 +203,14 @@ blockquote {
 /* Media query voor schermen kleiner dan 480px (kleine telefoons) */
 @media screen and (max-width: 480px) {
     .hero-section {
-        height: 40vh;
+        position: relative;
+        height: 100vh; /* Vult het scherm */
+    }
+
+    .hero-image {
+        position: center;
+        object-fit: absolute; /* Zorgt ervoor dat de afbeelding de container vult */
+        object-position: center; /* Zorgt ervoor dat het midden van de afbeelding wordt weergegeven */
     }
 
     .contact {
