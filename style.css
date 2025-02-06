@@ -37,13 +37,12 @@ html {
 /* Over Mij sectie */
 .over-mij {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 600px;
     margin: 40px auto;
-    gap: 20px;
-    text-align: center;
+    gap: 40px;
+    text-align: left;
 }
 
 .profile-image {
@@ -54,9 +53,6 @@ html {
 
 .over-mij-content {
     max-width: 600px;
-    text-align: centre;
-    margin: 40px auto;
-    gap: 20px;
 }
 
 /* Testimonials sectie */
@@ -160,7 +156,6 @@ blockquote {
     .over-mij {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
     }
 
     .profile-image {
