@@ -21,14 +21,13 @@ html, body {
 /* Hero sectie */
 .hero-section {
     position: relative;
-    height: 85vh;
+    height: auto;
     max-width: 100vw;
-    background-color: #353535;
+    background-color: #121212;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 120px;
-    overflow: hidden;
-    z-index: 1;
+    overflow: visible;
+    z-index: 0;
 }
 
 /* Logo */
@@ -41,55 +40,71 @@ html, body {
     z-index: 1000;
 }
 
-/* Foto-container aanpassen naar Netflix stijl */
+/* Foto-container */
 .photo-container {
     display: flex;
     flex-direction: column;
-    align-items: top;
+    align-items: flex-start;
+    margin-left: 50px;
     width: 100vw;
-    height: 100vh;  /* Maak de container hoog genoeg zodat je naar beneden kunt scrollen */
-    padding: 10px;
+    max-width: 100%;
+    padding: 5px;
     gap: 5px;
-    z-index: 1;
-    justify-content: left;
-    overflow-y: auto; /* Verticaal scrollen in de container */
+    overflow-x: scroll;
+    position: relative;
+    scrollbar-width: none;
 }
 
-/* Flex layout voor de rijen, elke rij scrollt onafhankelijk */
+/* Rijen */
 .photo-row {
+    margin-top: 40px;
+    margin-bottom: 40px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 10px;
     padding: 10px;
-    z-index: 1;
-    width: 100%;
-    box-sizing: border-box;
-    max-width: 100%;
-    justify-content: left;
+    position: relative;
+    scroll-behavior: smooth;
+
 }
 
-/* Foto's laten lijken op dvd covers */
+/* Afbeeldingen */
 .photo-row img {
     width: 200px;
     height: 275px;
     object-fit: cover;
     border-radius: 10px;
     flex-shrink: 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transform-origin: center;
 }
 
-/* Scrollen in de rijen */
+/* Hover effect */
+.photo-row img:hover {
+    transform: scale(1.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 2; /* Zet het boven andere afbeeldingen in de rij */
+}
+
+/* Zorg dat hover niet over andere rijen heen gaat */
+.photo-row {
+    overflow: visible;
+}
+
+/* Verberg de scrollbar volledig */
 .photo-row::-webkit-scrollbar {
-    display: none;
+    width: 0 !important;
+    height: 0 !important;
+    scrollbar-color: transparent;
 }
 
 .photo-row::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
+    background: transparent;  /* Verbergt de "thumb" */
 }
 
-.photo-row::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.photo-row::-webkit-scrollbar-track {
+    background: transparent;  /* Verbergt het trackgedeelte */
 }
 
 /* Over Mij sectie */
