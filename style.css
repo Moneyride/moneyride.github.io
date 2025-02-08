@@ -1,13 +1,13 @@
 /* Basisstijl voor de hele pagina */
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
+    line-height: 1.2;
     margin: 0;
     padding: 0;
     text-align: center;
     overflow-y: auto;
-    background-color: #121212;  /* Donkergrijze achtergrond */
-    color: #e0e0e0;  /* Lichtgrijze tekstkleur */
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 html {
@@ -64,14 +64,16 @@ html, body {
     margin-left: 70px;
     overflow: visible;
 }
+
 .Title-row2 {
     position: relative;
-    top: 65px;
+    top: 55px;
     text-align: left;
     font-weight: normal;
     font-size: 1.3em;
     margin-left: 70px;
     overflow: visible;
+    line-height: 0.1em;
 }
 
 /* Rijen */
@@ -85,11 +87,23 @@ html, body {
     padding: 10px;
     position: relative;
     scroll-behavior: smooth;
+}
 
+.photo-row-2 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+    scroll-behavior: smooth;
+    
 }
 
 /* Afbeeldingen */
-.photo-row img {
+.photo-row img, .photo-row-2 img {
     width: 200px;
     height: 275px;
     object-fit: cover;
@@ -100,30 +114,28 @@ html, body {
 }
 
 /* Hover effect */
-.photo-row img:hover {
+.photo-row img:hover, .photo-row-2 img:hover {
     transform: scale(1.4);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    z-index: 2; /* Zet het boven andere afbeeldingen in de rij */
+    z-index: 2;
 }
 
-/* Zorg dat hover niet over andere rijen heen gaat */
-.photo-row {
+.photo-row, .photo-row-2 {
     overflow: visible;
 }
 
-/* Verberg de scrollbar volledig */
-.photo-row::-webkit-scrollbar {
+.photo-row::-webkit-scrollbar, .photo-row-2::-webkit-scrollbar {
     width: 0 !important;
     height: 0 !important;
     scrollbar-color: transparent;
 }
 
-.photo-row::-webkit-scrollbar-thumb {
-    background: transparent;  /* Verbergt de "thumb" */
+.photo-row::-webkit-scrollbar-thumb, .photo-row-2::-webkit-scrollbar-thumb {
+    background: transparent; 
 }
 
-.photo-row::-webkit-scrollbar-track {
-    background: transparent;  /* Verbergt het trackgedeelte */
+.photo-row::-webkit-scrollbar-track, .photo-row-2::-webkit-scrollbar-track {
+    background: transparent; 
 }
 
 /* Over Mij sectie */
@@ -266,13 +278,13 @@ blockquote {
         gap: 5px;
         margin: 5px 0;
         padding: 5px;
-        scroll-snap-type: x mandatory; /* Zorg voor smooth scroll-snaps */
+        scroll-snap-type: x mandatory; 
     }
 
     .photo-row img {
-        width: 120px; /* Kleinere afbeeldingen */
+        width: 120px; 
         height: 180px;
-        scroll-snap-align: center; /* Afbeelding in focus */
+        scroll-snap-align: center;
         border-radius: 8px;
     }
 
@@ -280,8 +292,14 @@ blockquote {
     .Title-row, .Title-row2 {
         top: 20px;
         font-size: 1.1em;
-        margin-left: 10px; /* Minimaliseer marge */
+        margin-left: 10px;
         text-align: left;
+    }
+
+    .photo-row img:hover {
+        transform: scale(0);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        z-index: 2;
     }
 
     .over-mij {
@@ -308,9 +326,9 @@ blockquote {
     .contact {
         padding: 20px 10px;
         margin: 20px 10px;
-        box-shadow: none; /* Geen schaduw op mobiel */
+        box-shadow: none;
         max-width: 100%;
-        background-color: #333; /* Behoudt stijlconsistentie */
+        background-color: #333; 
     }
 
     .contact input, .contact textarea {
@@ -349,7 +367,7 @@ blockquote {
     }
 
     .social-icon:hover {
-        transform: scale(1.1); /* Beperkt hover-effect op mobiel */
+        transform: scale(1.1);
     }
 
     /* Testimonials */
