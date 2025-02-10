@@ -41,7 +41,7 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     max-width: 150px;
-    z-index: 1000;
+    z-index: 10;
 }
 
 /* Foto-container */
@@ -56,6 +56,23 @@ html, body {
     overflow-x: auto;
     position: relative;
     scrollbar-width: none;
+    z-index: 1;
+}
+
+/* Foto-container */
+.photo-container-2 {
+    display: grid;
+    grid-template-rows: minmax(auto, 380px);
+    margin-left: 80px;
+    bottom: 100px;
+    width: 100vw;
+    max-width: 100%;
+    padding: 5px;
+    gap: 5px;
+    overflow-x: auto;
+    position: relative;
+    scrollbar-width: none;
+    z-index: 1;
 }
 
 .Title-row {
@@ -70,7 +87,7 @@ html, body {
 
 .Title-row2 {
     position: relative;
-    top: 55px;
+    top: -45px;
     text-align: left;
     font-weight: bold;
     font-size: 1.3em;
@@ -82,7 +99,7 @@ html, body {
 /* Rijen */
 .photo-row {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -90,11 +107,12 @@ html, body {
     padding: 10px;
     position: relative;
     scroll-behavior: smooth;
+    z-index: 1;
 }
 
 .photo-row-2 {
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -102,6 +120,7 @@ html, body {
     padding: 10px;
     position: relative;
     scroll-behavior: smooth;
+    z-index: 1;
 }
 
 /* Afbeeldingen */
@@ -142,23 +161,24 @@ html, body {
 
 /* Over Mij sectie */
 .over-mij {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 200px auto; /* Vaste breedte voor afbeelding, rest voor tekst */
     max-width: 600px;
-    margin: 40px auto;
-    gap: 40px;
+    margin: 10px auto;
+    gap: 30px; /* Geen ruimte tussen de afbeelding en de tekst */
     text-align: left;
+    align-items: center; /* Verticaal uitlijnen in het midden */
 }
 
 .profile-image {
-    max-width: 200px;
+    width: 100%; /* Afbeelding vult de volledige breedte van zijn kolom */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .over-mij-content {
-    max-width: 600px;
+    max-width: 100%; /* Laat de tekst de ruimte gebruiken die beschikbaar is */
+    margin: 0; /* Geen extra marges */
 }
 
 /* Testimonials sectie */
