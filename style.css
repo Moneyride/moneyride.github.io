@@ -46,6 +46,17 @@ html, body {
     transform: translateX(-50%);
     max-width: 150px;
     z-index: 1000;
+    transition: opacity 0.3s ease-in-out; /* Vloeiende overgang voor opacity */
+}
+
+/* Zwart logo (standaard zichtbaar) */
+#timelix-logo {
+    opacity: 1; /* Zwart logo is zichtbaar */
+}
+
+/* Wit logo (in eerste instantie onzichtbaar) */
+#timelix-white {
+    opacity: 0; /* Wit logo begint onzichtbaar */
 }
 
 /* Foto-container */
