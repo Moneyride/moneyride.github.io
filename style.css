@@ -74,6 +74,23 @@ html, body {
     opacity: 0; /* Wit logo begint onzichtbaar */
 }
 
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+}
+
+button svg {
+    width: 20px; /* Verklein de breedte van het icoon */
+    height: 20px; /* Verklein de hoogte van het icoon */
+}
+
 /* Foto-container */
 .photo-container {
     display: grid;
@@ -336,6 +353,10 @@ html, body {
         border-bottom-right-radius: 10px;
         margin-top: 0px;
         overflow: visible;
+    }
+
+    .hero-section::after {
+        height: 70%; /* Verhoog of verlaag de hoogte om de startpositie te manipuleren */
     }
 
     /* Foto-container */
