@@ -17,7 +17,8 @@
     <header class="hero-section">
         <div class="overlay">
             <a href="#top" class="logo-link">
-                <img src="Logo/timelix.png" alt="Logo" class="logo">
+                <img src="Logo/timelix-logo.png" alt="Zwart Logo" class="logo" id="timelix-logo">
+                <img src="Logo/timelix.png" alt="Wit Logo" class="logo" id="timelix-white">
             </a>
         </div>
     </header>
@@ -171,5 +172,24 @@
         });
     </script>
 
+    ,<script>
+
+window.addEventListener('scroll', function() {
+    var scrollPosition = window.scrollY; // Hoeveel er is gescrold
+    var blackLogo = document.querySelector('#timelix-logo');
+    var whiteLogo = document.querySelector('#timelix-white');
+    
+    // Zorg dat de overgang soepel is
+    var opacity = 1 - (scrollPosition / 200); // Verminder de opacity van het zwarte logo op basis van scrollen
+
+    // Zorg ervoor dat de opacity tussen 0 en 1 blijft
+    if (opacity < 0) opacity = 0; 
+    if (opacity > 1) opacity = 1;
+
+    // Pas de opacity van de logo's aan
+    blackLogo.style.opacity = opacity;
+    whiteLogo.style.opacity = 1 - opacity; // Wit logo wordt zichtbaarder als zwart logo verdwijnt
+});
+    </script>
 </body>
 </html>
