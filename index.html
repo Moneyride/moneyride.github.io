@@ -9,10 +9,10 @@
     <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body id="top">
-    
     <!-- Hero sectie met logo en achtergrondafbeelding -->
     <header class="hero-section">
         <div class="overlay">
@@ -21,6 +21,26 @@
             </a>
         </div>
     </header>
+
+    <button
+      class="absolute top-3/4 left-16 transform -translate-y-1/2 bg-[#141414] px-4 py-3 rounded-lg text-white tracking-wider animate-bounce hover:animate-none"
+      onclick="document.querySelector('.Title-row').scrollIntoView({behavior: 'smooth'})"
+    >
+      <svg
+        class="w-20 h-20"
+        stroke="currentColor"
+        stroke-width="3"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+      </svg>
+    </button>
         
     <!-- Eerste rij van 14 foto's -->
     <div>
