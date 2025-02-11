@@ -325,8 +325,17 @@ html, body {
 @media screen and (max-width: 480px) {
     /* Hero-sectie */
     .hero-section {
-        margin-top: 80px;
-        padding: 10px;
+        position: relative;
+        height: 80vh;
+        background-image: url('Landing-page/koningsdag.jpg');
+        background-size: cover; /* Veranderd van 'center' naar 'cover' */
+        background-position: 68% center;
+        background-repeat: no-repeat;
+        background-color: #141414;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        margin-top: 0px;
+        overflow: visible;
     }
 
     /* Foto-container */
@@ -370,17 +379,28 @@ html, body {
         box-shadow: none;
     }
 
-    /* Titelrijen */
-    .Title-row, .Title-row2 {
-        margin-left: 20px;
-        top: 5px;
-        font-size: 1.2em;
-        text-align: left;
-    }
-
     .Title-row {
-        margin: 5px;
+        position: relative;
+        top: -65px;
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.3em;
         margin-left: 20px;
+        margin-bottom: 15px;
+        overflow: visible;
+    }
+    
+    .Title-row2 {
+        position: relative;
+        top: 15px;
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-left: 20px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        overflow: visible;
+        line-height: 0.1em;
     }
 
     /* Over-mij-sectie */
