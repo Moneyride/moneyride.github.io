@@ -231,7 +231,7 @@ button svg {
 .profile-image {
     width: 100%; /* Afbeelding vult de volledige breedte van zijn kolom */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
 }
 
 .over-mij-content {
@@ -263,7 +263,7 @@ button svg {
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
 }
 
 
@@ -440,6 +440,16 @@ button svg {
     .over-mij-content {
         text-align: center;
         padding: 20px;
+    }
+
+    .over-mij h2 {
+        position: relative;
+        top: -310px;
+    }
+
+    .over-mij p {
+        position: relative;
+        margin-top: -80px;
     }
 
     /* Contact-sectie */
