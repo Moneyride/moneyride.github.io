@@ -188,7 +188,6 @@ button svg {
 /* Hover effect */
 .photo-row img:hover, .photo-row-2 img:hover {
     transform: scale(1.4);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     z-index: 2;
 }
 
@@ -307,6 +306,8 @@ button svg {
     border-radius: 5px;
     cursor: pointer;
 }
+
+
 
 /* Footer styling */
 .footer {
