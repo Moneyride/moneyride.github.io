@@ -191,7 +191,7 @@ button svg {
 /* Hover effect */
 .photo-row img:hover, .photo-row-2 img:hover {
     transform: scale(1.4);
-    z-index: 2;
+    z-index: 3;
 }
 
 .photo-row, .photo-row-2 {
@@ -211,6 +211,7 @@ button svg {
 .photo-row::-webkit-scrollbar-track, .photo-row-2::-webkit-scrollbar-track {
     background: transparent; 
 }
+
 
 /* Over Mij sectie */
 .over-mij h2 {
