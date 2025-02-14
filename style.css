@@ -404,11 +404,13 @@ button svg {
         flex-direction: column;
         gap: 15px;
         text-align: center;
+        margin-top: 20px;
     }
 
     .profile-image {
         width: 150px;
         margin: 0 auto;
+        margin-top: 5px;
     }
 
     .over-mij-content {
@@ -418,11 +420,12 @@ button svg {
 
     .over-mij h2 {
         position: relative;
-        top: -310px;
+        top: -300px;
     }
 
     .over-mij p {
         position: relative;
+        text-align: center;
         margin-top: -80px;
     }
 
