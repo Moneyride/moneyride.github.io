@@ -49,11 +49,11 @@
     </div>
     <div class="photo-container">
         <div class="photo-row">
-            <img src="3x2/foto1.jpg" alt="Foto 1" loading="lazy">
+            <img src="3x2/foto1-2.jpg" alt="Foto 1" loading="lazy">
             <img src="3x2/foto3.jpg" alt="Foto 3" loading="lazy">
             <img src="3x2/foto4.jpg" alt="Foto 4" loading="lazy">
             <img src="Foto's van mij/c1d229b5-94dd-4acc-be80-86b95a0f225c.JPG" alt="Foto 5" loading="lazy">
-            <img src="Foto's van mij/f6ab92e6-5b5e-49eb-9b97-c9abc57838cc.JPG" alt="Foto 6" loading="lazy">
+            <img src="Foto's van mij/f6ab92e6-5b5e-49eb-9b97-c9abc57838cc-2.jpg" alt="Foto 6" loading="lazy">
             <img src="Foto's van mij/IMG_0108.jpg" alt="Foto 7" loading="lazy">
             <img src="Foto's van mij/IMG_0472.jpg" alt="Foto 8" loading="lazy">
             <img src="Foto's van mij/IMG_1625.jpg" alt="Foto 9" loading="lazy">
@@ -91,7 +91,7 @@
         <img src="Foto's-me/about/Vertical.jpg" alt="Profielafbeelding" class="profile-image">
         <div class="over-mij-content">
             <h2>Over Mij</h2>
-            <p>Met meer dan 10 jaar ervaring als cameraman, werk ik als zzp'er in de televisie-industrie. Mijn passie ligt bij het vertellen van verhalen en het vastleggen van momenten die raken.</p>
+            <p>Als ervaren cameraman in onder andere de televisie-industrie werk ik al meer dan tien jaar met toewijding aan het vastleggen van beelden die impact maken. Mijn werk omvat uiteenlopende projecten, variërend van ENG en Meercamera tot Online Producties en gespecialiseerde opdrachten als Drone-Operator. Met een scherp oog voor detail en een passie voor visuele storytelling streef ik ernaar om elk moment krachtig en betekenisvol te vangen.</p>
         </div>
     </section>
 
@@ -99,7 +99,9 @@
     <section id="testimonials">
         <h2>Testimonials</h2>
         <div class="testimonial-slider">
-            <blockquote>"Chris is een geweldige cameraman die altijd professioneel werkt."</blockquote>
+            <blockquote class="active">“Wij werken veel met Chris waarbij wij hem inzetten als Drone Camera Operator in een Dual Operator set-up.  Chris weet precies hoe hij de perfecte shots moet maken in samenspraak met de drone pilot. Zijn vakmanschap, oog voor detail en creativiteit tillen elke productie naar een hoger niveau. Hij werkt professioneel, efficiënt en denkt altijd mee om het beste resultaat te bereiken. Daarnaast is het ook een super gezellige vent om mee op pad te gaan."<br>
+                <br>
+                Frans Janssen - Luchtfilmproducties</blockquote>
             <blockquote>"Zijn creativiteit en oog voor detail hebben ons project echt versterkt."</blockquote>
             <blockquote>"Zeer flexibel en makkelijk om mee samen te werken."</blockquote>
         </div>
@@ -190,5 +192,81 @@ window.addEventListener('scroll', function() {
     whiteLogo.style.opacity = 1 - opacity; // Wit logo wordt zichtbaarder als zwart logo verdwijnt
 });
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const testimonials = document.querySelectorAll('.testimonial-slider blockquote');
+        let currentIndex = 0;
+        let intervalId;
+    
+        // Functie om de leestijd te berekenen op basis van het aantal woorden
+        function calculateReadTime(text) {
+            const words = text.split(' ').length;
+            const wordTime = 1000 / 7; // 8 woorden per seconde → tijd in milliseconden per woord
+            const minTime = 4000; // Minimumtijd 2 seconden
+            const maxTime = 18000; // Maximumtijd 16 seconden
+    
+            // Basis leestijd berekenen
+            let readTime = words * wordTime;
+    
+            // Pas de snelheid aan voor korte teksten
+            if (words < 15) {
+                readTime = Math.max(readTime * 0.7, minTime); // Zorg ervoor dat het minstens 2 seconden duurt
+            }
+    
+            // Zorg ervoor dat de leestijd tussen de minimum- en maximumgrenzen blijft
+            const finalReadTime = Math.min(readTime, maxTime);
+    
+            // Debugging: Toon de berekende tijd en de tekst
+            console.log(`Tekst: "${text}" | Woorden: ${words} | Leestijd: ${finalReadTime} ms`);
+            
+            return finalReadTime;
+        }
+    
+        // Functie om naar de volgende testimonial te gaan
+        function showNextTestimonial() {
+            // Voeg de 'exit' klasse toe aan de huidige testimonial
+            testimonials[currentIndex].classList.add('exit');
+    
+            // Verwijder de 'active' klasse na de overgang
+            setTimeout(() => {
+                testimonials[currentIndex].classList.remove('active');
+                testimonials[currentIndex].classList.remove('exit');
+                
+                // Verhoog de index voor de volgende testimonial (circulair)
+                currentIndex = (currentIndex + 1) % testimonials.length;
+    
+                // Voeg de 'active' klasse toe aan de nieuwe testimonial
+                testimonials[currentIndex].classList.add('active');
+    
+                // Herstart de timer voor de nieuwe testimonial
+                startInterval();
+            }, 1000); // Wacht 1 seconde voor de overgang
+        }
+    
+        // Start de timer voor de slider op basis van de berekende leestijd
+        function startInterval() {
+            // Stop eventueel een eerder lopend interval
+            clearInterval(intervalId);
+    
+            // Haal de tekst van de huidige testimonial
+            const currentText = testimonials[currentIndex].textContent.trim();
+    
+            // Bereken de leestijd
+            const readTime = calculateReadTime(currentText);
+    
+            // Stel een nieuw interval in op basis van de berekende leestijd
+            intervalId = setTimeout(showNextTestimonial, readTime);
+        }
+    
+        // Start de slider door de eerste testimonial actief te maken
+        testimonials[currentIndex].classList.add('active');
+        
+        // Start de timer
+        startInterval();
+    });
+    </script>
+    
+
 </body>
 </html>
