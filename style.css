@@ -1,6 +1,6 @@
 /* Basisstijl voor de hele pagina */
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'myriad-pro', sans-serif;
     line-height: 1.2;
     margin: 0;
     padding: 1;
@@ -163,7 +163,7 @@ button svg {
 
 .over-mij {
     display: grid;
-    grid-template-columns: 200px auto; /* Vaste breedte voor afbeelding, rest voor tekst */
+    grid-template-columns: 200px 400px; /* Vaste breedte voor afbeelding, rest voor tekst */
     max-width: 600px;
     margin: 10px auto;
     gap: 30px; /* Geen ruimte tussen de afbeelding en de tekst */
@@ -331,7 +331,7 @@ button svg {
     }
 
     .hero-section::after {
-        height: 70%; /* Verhoog of verlaag de hoogte om de startpositie te manipuleren */
+        height: 45%; /* Verhoog of verlaag de hoogte om de startpositie te manipuleren */
     }
 
     /* Foto-container */
@@ -425,7 +425,7 @@ button svg {
 
     .over-mij p {
         position: relative;
-        text-align: center;
+        text-align: left;
         margin-top: -80px;
     }
 
