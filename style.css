@@ -358,7 +358,7 @@ button svg {
        .photo-row-2 { 
         gap: 8px;
         padding: 5px;
-        margin-top: 100px;
+        margin-top: 90px;
     }
 
     .photo-row img, .photo-row-2 img {
@@ -464,6 +464,11 @@ button svg {
     }
 
     /* Testimonials */
+
+    .testimonial-slider {
+        height: 350px;
+    }
+
     blockquote {
         max-width: 100%;
         max-height: 100%;
