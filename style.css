@@ -92,10 +92,10 @@ button svg {
 }
 
 /* Foto-container */
-.photo-container {
+.photo-container, .photo-container-2 {
     display: grid;
     grid-template-rows: minmax(auto, 380px);
-    margin-left: 80px;
+    margin-left: 80px; /* margin blijft voor scrollen */
     width: 100vw;
     max-width: 100%;
     padding: 5px;
@@ -104,76 +104,7 @@ button svg {
     position: relative;
     scrollbar-width: none;
     margin-top: -90px;
-    
 }
-
-/* Foto-container */
-.photo-container-2 {
-    display: grid;
-    grid-template-rows: minmax(auto, 380px);
-    margin-left: 80px;
-    bottom: 100px;
-    width: 100vw;
-    max-width: 100%;
-    padding: 5px;
-    gap: 5px;
-    overflow-x: auto;
-    position: relative;
-    scrollbar-width: none;
-    
-}
-
-.Title-row {
-    position: relative;
-    top: -25px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-left: 95px;
-    margin-bottom: 15px;
-    overflow: visible;
-}
-
-.Title-row2 {
-    position: relative;
-    top: -45px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-left: 95px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    overflow: visible;
-    line-height: 0.1em;
-}
-
-/* Rijen */
-.photo-row {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-    position: relative;
-    scroll-behavior: smooth;
-    
-}
-
-.photo-row-2 {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 10px;
-    padding: 10px;
-    position: relative;
-    scroll-behavior: smooth;
-    
-}
-
 
 /* Afbeeldingen */
 .photo-row img, .photo-row-2 img {
@@ -190,14 +121,25 @@ button svg {
 
 /* Hover effect */
 .photo-row img:hover, .photo-row-2 img:hover {
-    transform: scale(1.4);
+    transform: scale(1.4) translateX(10%); /* Translate zorgt ervoor dat de afbeelding verschuift zonder af te snijden */
     z-index: 3;
 }
 
+/* Rijen */
 .photo-row, .photo-row-2 {
-    overflow: visible;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px;
+    position: relative;
+    scroll-behavior: smooth;
+    overflow: visible; /* Zorg ervoor dat de overflow zichtbaar blijft */
 }
 
+/* Verbergen van scrollbar */
 .photo-row::-webkit-scrollbar, .photo-row-2::-webkit-scrollbar {
     width: 0 !important;
     height: 0 !important;
@@ -211,7 +153,6 @@ button svg {
 .photo-row::-webkit-scrollbar-track, .photo-row-2::-webkit-scrollbar-track {
     background: transparent; 
 }
-
 
 /* Over Mij sectie */
 .over-mij h2 {
@@ -228,7 +169,7 @@ button svg {
     gap: 30px; /* Geen ruimte tussen de afbeelding en de tekst */
     text-align: left;
     align-items: center; /* Verticaal uitlijnen in het midden */
-    margin-top: -50px;
+    margin-top: 0px;
 }
 
 .profile-image {
