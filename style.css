@@ -668,6 +668,12 @@ h3 {
     font-size: 1.05rem;
 }
 
+.contact-copy h2 {
+    max-width: 520px;
+    font-size: clamp(2rem, 3.6vw, 4rem);
+    line-height: 1;
+}
+
 .social-links {
     display: flex;
     flex-wrap: wrap;
