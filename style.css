@@ -16,6 +16,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -35,6 +36,18 @@ body::selection {
 img {
     display: block;
     max-width: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 a {
@@ -169,6 +182,14 @@ h1 {
     height: auto;
     transform: translateY(-30%);
     filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+}
+
+.hero-name {
+    margin: -6px 0 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1.15rem, 2vw, 1.55rem);
+    font-weight: 900;
+    letter-spacing: 0;
 }
 
 h2 {
@@ -418,14 +439,9 @@ h3 {
 
 .media-row img {
     width: 100%;
-    height: 122%;
+    height: 100%;
     object-fit: cover;
-    object-position: center top;
-}
-
-.media-row .crop-old-label img {
-    height: 128%;
-    object-position: center top;
+    object-position: center;
 }
 
 .media-row figcaption {
