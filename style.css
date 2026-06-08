@@ -325,6 +325,7 @@ h3 {
 
 .work-section,
 .services-section,
+.experience-section,
 .about-section,
 .testimonials-section,
 .contact-section {
@@ -450,6 +451,36 @@ h3 {
 
 .services-section {
     padding: 76px 0 44px;
+}
+
+.experience-section {
+    padding: 34px 0 48px;
+}
+
+.experience-section .section-heading {
+    margin-bottom: 18px;
+}
+
+.experience-section h2 {
+    font-size: clamp(1.8rem, 3.4vw, 3.6rem);
+}
+
+.experience-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.experience-list li {
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.84);
+    font-weight: 800;
 }
 
 .service-grid {
