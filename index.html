@@ -29,7 +29,9 @@
         <section class="hero-section" aria-labelledby="hero-title">
             <div class="hero-content">
                 <p class="eyebrow">Cameraman / Drone operator / Visual storyteller</p>
-                <h1 id="hero-title">Timelix</h1>
+                <h1 id="hero-title" class="hero-logo-title">
+                    <img src="Logo/timelix.png" alt="Timelix" class="hero-logo-wordmark">
+                </h1>
                 <p class="hero-copy">Beeld met ritme, focus en gevoel voor het moment. Voor televisie, online producties, ENG, meercamera en dronewerk.</p>
                 <div class="hero-actions">
                     <a href="#werk" class="button button-primary">Bekijk werk</a>
@@ -57,16 +59,8 @@
         </section>
 
         <section id="werk" class="work-section">
-            <div class="section-heading">
-                <p class="eyebrow">Portfolio</p>
-                <h2>Gemaakt om te bewegen</h2>
-            </div>
-
             <div class="media-row-block">
-                <div class="row-title">
-                    <h3>Actie op locatie</h3>
-                    <p>Scroll horizontaal</p>
-                </div>
+                <h2 class="media-row-title">Achter de schermen</h2>
                 <div class="media-row" tabindex="0" aria-label="Actiefoto's">
                     <figure class="crop-old-label"><img src="Foto's van mij/Chrismetpolitie.jpg" alt="Camerawerk tijdens politieproductie" loading="lazy"><figcaption>ENG</figcaption></figure>
                     <figure class="crop-old-label"><img src="3x2/foto1-2.jpg" alt="Camera opstelling tijdens productie" loading="lazy"><figcaption>Locatie</figcaption></figure>
@@ -86,10 +80,7 @@
             </div>
 
             <div class="media-row-block">
-                <div class="row-title">
-                    <h3>Onlangs toegevoegd</h3>
-                    <p>Nieuwe beelden en stills</p>
-                </div>
+                <h2 class="media-row-title">Recente beelden</h2>
                 <div class="media-row" tabindex="0" aria-label="Onlangs toegevoegd">
                     <figure><img src="Foto's van mij/LL'15.jpg" alt="Productiefoto" loading="lazy"><figcaption>Productie</figcaption></figure>
                     <figure><img src="Foto's van mij/REPR7626.JPG" alt="Cameraman op pad" loading="lazy"><figcaption>Op pad</figcaption></figure>
@@ -110,7 +101,7 @@
         <section id="diensten" class="services-section">
             <div class="section-heading">
                 <p class="eyebrow">Wat ik doe</p>
-                <h2>Van draaiplan naar bruikbaar beeld</h2>
+                <h2>Ervaring achter de camera</h2>
             </div>
             <div class="service-grid">
                 <article>
@@ -142,7 +133,7 @@
             </div>
             <div class="about-content">
                 <p class="eyebrow">Over mij</p>
-                <h2>Ik ben Chris Reichgelt, de cameraman achter Timelix.</h2>
+                <h2>Camerawerk met aandacht voor het moment.</h2>
                 <p>Al meer dan tien jaar werk ik in en rond de televisie-industrie aan beelden die helder, bruikbaar en menselijk voelen. Van ENG en meercamera tot online producties en drone-opdrachten: ik denk mee vanaf het eerste draaiplan en blijf scherp tot het laatste shot.</p>
                 <p>Op set zoek ik naar de combinatie van techniek en aandacht. Het juiste kader, net dat extra licht, een schonere achtergrond of een beweging die het verhaal sterker maakt.</p>
             </div>
@@ -151,7 +142,7 @@
         <section id="testimonials" class="testimonials-section">
             <div class="section-heading">
                 <p class="eyebrow">Samenwerkingen</p>
-                <h2>Wat opdrachtgevers zeggen</h2>
+                <h2>Opdrachtgevers</h2>
             </div>
             <div class="testimonial-slider" aria-live="polite">
                 <blockquote class="active">
@@ -171,6 +162,8 @@
                     <cite>Opdrachtgever</cite>
                 </blockquote>
             </div>
+            <button type="button" class="testimonial-arrow testimonial-arrow-prev" aria-label="Vorige testimonial">‹</button>
+            <button type="button" class="testimonial-arrow testimonial-arrow-next" aria-label="Volgende testimonial">›</button>
             <div class="testimonial-controls" aria-label="Testimonials">
                 <button type="button" class="dot active" aria-label="Toon testimonial 1"></button>
                 <button type="button" class="dot" aria-label="Toon testimonial 2"></button>
@@ -205,7 +198,9 @@
     </main>
 
     <footer class="footer">
-        <a href="#top" class="footer-brand">Timelix</a>
+        <a href="#top" class="footer-brand" aria-label="Timelix home">
+            <img src="Logo/timelix.png" alt="Timelix">
+        </a>
         <p>Chris Reichgelt - Cameraman & Drone Operator</p>
     </footer>
 
@@ -214,6 +209,8 @@
         const rows = document.querySelectorAll('.media-row');
         const testimonials = document.querySelectorAll('.testimonial-slider blockquote');
         const dots = document.querySelectorAll('.testimonial-controls .dot');
+        const testimonialPrev = document.querySelector('.testimonial-arrow-prev');
+        const testimonialNext = document.querySelector('.testimonial-arrow-next');
         let testimonialIndex = 0;
         let testimonialTimer;
 
@@ -271,6 +268,16 @@
                 showTestimonial(index);
                 scheduleTestimonial();
             });
+        });
+
+        testimonialPrev.addEventListener('click', () => {
+            showTestimonial((testimonialIndex - 1 + testimonials.length) % testimonials.length);
+            scheduleTestimonial();
+        });
+
+        testimonialNext.addEventListener('click', () => {
+            showTestimonial((testimonialIndex + 1) % testimonials.length);
+            scheduleTestimonial();
         });
 
         scheduleTestimonial();

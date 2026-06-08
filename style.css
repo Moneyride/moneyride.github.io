@@ -156,6 +156,21 @@ h1 {
     text-transform: uppercase;
 }
 
+.hero-logo-title {
+    width: clamp(260px, 34vw, 470px);
+    height: clamp(92px, 12vw, 150px);
+    margin-bottom: 18px;
+    overflow: hidden;
+    line-height: 1;
+}
+
+.hero-logo-wordmark {
+    width: 100%;
+    height: auto;
+    transform: translateY(-30%);
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+}
+
 h2 {
     margin-bottom: 18px;
     font-size: clamp(2.1rem, 5vw, 4.8rem);
@@ -297,7 +312,7 @@ h3 {
 }
 
 .work-section {
-    padding-top: 92px;
+    padding-top: 72px;
 }
 
 .section-heading {
@@ -305,13 +320,38 @@ h3 {
     margin-bottom: 26px;
 }
 
+.services-section .section-heading {
+    max-width: 980px;
+}
+
+.services-section .section-heading h2 {
+    max-width: 920px;
+    font-size: clamp(2.4rem, 4.4vw, 4.8rem);
+}
+
+.testimonials-section .section-heading {
+    max-width: none;
+}
+
+.testimonials-section .section-heading h2 {
+    white-space: nowrap;
+}
+
 .media-row-block + .media-row-block {
-    margin-top: 76px;
+    margin-top: 28px;
 }
 
 .media-row-block {
     position: relative;
     isolation: isolate;
+}
+
+.media-row-title {
+    margin: 0 0 -12px;
+    font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: 0;
 }
 
 .row-title {
@@ -339,13 +379,16 @@ h3 {
     grid-auto-columns: clamp(170px, 18vw, 250px);
     gap: 14px;
     margin-inline: calc((100vw - min(var(--max), calc(100vw - 40px))) / -2);
-    padding: 30px calc((100vw - min(var(--max), calc(100vw - 40px))) / 2) 72px;
+    padding: 30px calc((100vw - min(var(--max), calc(100vw - 40px))) / 2) 48px;
     overflow-x: auto;
     overflow-y: visible;
     scroll-snap-type: x proximity;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.24) transparent;
+    scrollbar-width: none;
     cursor: grab;
+}
+
+.media-row::-webkit-scrollbar {
+    display: none;
 }
 
 .media-row.is-dragging {
@@ -386,20 +429,11 @@ h3 {
 }
 
 .media-row figcaption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 34px 14px 12px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.82));
-    color: #fff;
-    font-size: 0.82rem;
-    font-weight: 800;
-    z-index: 2;
+    display: none;
 }
 
 .services-section {
-    padding: 88px 0 40px;
+    padding: 76px 0 44px;
 }
 
 .service-grid {
@@ -409,8 +443,8 @@ h3 {
 }
 
 .service-grid article {
-    min-height: 250px;
-    padding: 24px;
+    min-height: 220px;
+    padding: 26px;
     border: 1px solid var(--line);
     border-radius: 8px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
@@ -418,7 +452,7 @@ h3 {
 
 .service-grid span {
     display: inline-block;
-    margin-bottom: 58px;
+    margin-bottom: 42px;
     color: var(--accent);
     font-weight: 900;
 }
@@ -433,7 +467,7 @@ h3 {
     grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.1fr);
     gap: clamp(28px, 6vw, 76px);
     align-items: center;
-    padding: 72px 0 56px;
+    padding: 82px 0 64px;
 }
 
 .about-image-wrap {
@@ -462,7 +496,17 @@ h3 {
     font-size: 1.05rem;
 }
 
+.about-content {
+    max-width: 620px;
+}
+
+.about-content h2 {
+    max-width: 620px;
+    font-size: clamp(2.2rem, 4.6vw, 4.2rem);
+}
+
 .testimonials-section {
+    position: relative;
     padding: 66px 0 72px;
 }
 
@@ -504,6 +548,39 @@ h3 {
     color: var(--muted);
     font-style: normal;
     font-weight: 800;
+}
+
+.testimonial-arrow {
+    position: absolute;
+    top: 52%;
+    z-index: 4;
+    width: 48px;
+    height: 74px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 3.2rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.testimonial-arrow:hover,
+.testimonial-arrow:focus-visible {
+    border-color: rgba(255, 255, 255, 0.24);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.88);
+    outline: none;
+}
+
+.testimonial-arrow-prev {
+    left: -72px;
+}
+
+.testimonial-arrow-next {
+    right: -72px;
 }
 
 .testimonial-controls {
@@ -609,10 +686,16 @@ h3 {
 }
 
 .footer-brand {
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 900;
-    text-transform: uppercase;
+    display: block;
+    width: 142px;
+    height: 54px;
+    overflow: hidden;
+}
+
+.footer-brand img {
+    width: 100%;
+    max-width: none;
+    transform: translateY(-30%);
 }
 
 .footer p {
@@ -741,6 +824,23 @@ h3 {
 
     .contact-section {
         padding: 32px 18px;
+    }
+
+    .testimonial-arrow {
+        top: auto;
+        bottom: 82px;
+        width: 42px;
+        height: 54px;
+        font-size: 2.4rem;
+        transform: none;
+    }
+
+    .testimonial-arrow-prev {
+        left: 14px;
+    }
+
+    .testimonial-arrow-next {
+        right: 14px;
     }
 
     .footer {
