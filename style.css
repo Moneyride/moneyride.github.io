@@ -86,11 +86,16 @@ textarea {
 .brand {
     display: inline-flex;
     align-items: center;
+    width: clamp(104px, 12vw, 150px);
+    height: clamp(40px, 5vw, 58px);
+    overflow: hidden;
 }
 
 .brand-logo {
-    width: clamp(104px, 12vw, 150px);
+    width: 100%;
+    max-width: none;
     height: auto;
+    transform: translateY(-14%);
 }
 
 .main-nav {
@@ -652,25 +657,27 @@ h3 {
 
 .contact-section {
     display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-    gap: clamp(28px, 6vw, 80px);
+    grid-template-columns: minmax(260px, 0.7fr) minmax(360px, 1fr);
+    gap: clamp(28px, 5vw, 64px);
     align-items: start;
-    padding: 76px clamp(20px, 4vw, 52px);
+    padding: clamp(34px, 5vw, 58px);
     border: 1px solid var(--line);
     border-radius: 8px;
     background:
-        linear-gradient(135deg, var(--accent-soft), rgba(255, 255, 255, 0.02) 42%),
-        var(--panel);
+        linear-gradient(135deg, rgba(229, 9, 20, 0.11), rgba(255, 255, 255, 0.018) 36%),
+        rgba(22, 22, 24, 0.72);
 }
 
 .contact-copy p:not(.eyebrow) {
+    max-width: 360px;
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .contact-copy h2 {
-    max-width: 520px;
-    font-size: clamp(2rem, 3.6vw, 4rem);
+    max-width: 360px;
+    margin-bottom: 14px;
+    font-size: clamp(2rem, 2.7vw, 3rem);
     line-height: 1;
 }
 
@@ -691,7 +698,7 @@ h3 {
 
 .contact-form {
     display: grid;
-    gap: 10px;
+    gap: 9px;
 }
 
 .contact-form label {
@@ -705,7 +712,7 @@ h3 {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 6px;
-    background: rgba(0, 0, 0, 0.34);
+    background: rgba(0, 0, 0, 0.28);
     color: #fff;
     padding: 13px 14px;
     outline: none;
@@ -713,6 +720,7 @@ h3 {
 }
 
 .contact-form textarea {
+    min-height: 150px;
     resize: vertical;
 }
 
@@ -779,8 +787,8 @@ h3 {
 @media (max-width: 680px) {
     .site-header {
         align-items: center;
-        gap: 12px;
-        padding: 12px 16px;
+        gap: 10px;
+        padding: 10px 14px;
     }
 
     .site-header.is-scrolled {
@@ -789,32 +797,54 @@ h3 {
     }
 
     .site-header.is-scrolled .brand-logo {
-        width: 86px;
+        width: 100%;
     }
 
-    .brand-logo {
-        width: 112px;
+    .brand {
+        width: 98px;
+        height: 46px;
     }
 
     .main-nav {
-        max-width: 222px;
+        max-width: 232px;
         justify-content: flex-end;
         flex-wrap: wrap;
-        gap: 2px 14px;
-        font-size: 0.78rem;
+        gap: 2px 12px;
+        font-size: 0.74rem;
     }
 
     .hero-section {
-        min-height: 80svh;
+        min-height: 78svh;
         align-items: flex-end;
-        padding: 118px 20px 74px;
+        padding: 104px 20px 68px;
         background:
             linear-gradient(180deg, rgba(4, 4, 5, 0.34) 0%, rgba(4, 4, 5, 0.82) 68%, var(--bg) 100%),
             url("Landing-page/koningsdag.jpg") 66% center / cover no-repeat;
     }
 
+    .hero-logo-title {
+        width: min(250px, 72vw);
+        height: 88px;
+        margin-bottom: 12px;
+    }
+
+    .hero-name {
+        margin-bottom: 10px;
+    }
+
+    .hero-copy {
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+
     .hero-actions {
         display: grid;
+        gap: 10px;
+        max-width: 300px;
+    }
+
+    .scroll-cue {
+        display: none;
     }
 
     .intro-strip,
@@ -837,7 +867,7 @@ h3 {
     }
 
     .work-section {
-        padding-top: 66px;
+        padding-top: 48px;
     }
 
     .row-title {
@@ -847,13 +877,18 @@ h3 {
     }
 
     .media-row-block + .media-row-block {
-        margin-top: 84px;
+        margin-top: 36px;
+    }
+
+    .media-row-title {
+        margin-bottom: 8px;
+        font-size: 1.08rem;
     }
 
     .media-row {
-        grid-auto-columns: 42vw;
+        grid-auto-columns: 41vw;
         margin-inline: -14px;
-        padding: 6px 14px 52px;
+        padding: 0 14px 24px;
         overflow-y: hidden;
     }
 
@@ -863,20 +898,89 @@ h3 {
     }
 
     .media-row figure {
-        height: 58vw;
-        min-height: 210px;
+        height: 54vw;
+        min-height: 190px;
+    }
+
+    .services-section {
+        padding: 54px 0 30px;
+    }
+
+    .section-heading {
+        margin-bottom: 18px;
+    }
+
+    .services-section .section-heading h2,
+    .experience-section h2,
+    .about-content h2,
+    .testimonials-section h2,
+    .contact-copy h2 {
+        font-size: clamp(2rem, 9vw, 2.65rem);
+        line-height: 1.02;
+    }
+
+    .service-grid article {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .service-grid span {
+        margin-bottom: 28px;
+    }
+
+    .experience-section {
+        padding: 28px 0 34px;
+    }
+
+    .experience-list {
+        gap: 8px;
+    }
+
+    .experience-list li {
+        padding: 9px 12px;
+        font-size: 0.92rem;
     }
 
     .service-grid {
         grid-template-columns: 1fr;
     }
 
+    .about-section {
+        padding: 48px 0 42px;
+        gap: 24px;
+    }
+
     .about-image-wrap::before {
         inset: 14px -10px -10px 14px;
     }
 
+    .testimonials-section {
+        padding: 42px 0 54px;
+    }
+
+    .testimonial-slider {
+        min-height: 300px;
+    }
+
+    .testimonial-slider blockquote {
+        padding: 22px;
+    }
+
+    .testimonial-slider p {
+        font-size: 1.02rem;
+    }
+
     .contact-section {
-        padding: 32px 18px;
+        gap: 22px;
+        padding: 28px 18px;
+    }
+
+    .social-links {
+        margin-top: 18px;
+    }
+
+    .contact-form textarea {
+        min-height: 140px;
     }
 
     .testimonial-arrow {
@@ -899,5 +1003,6 @@ h3 {
     .footer {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
     }
 }
