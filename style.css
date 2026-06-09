@@ -740,6 +740,53 @@ h3 {
     border: 0;
 }
 
+.contact-form button:disabled {
+    cursor: wait;
+    opacity: 0.72;
+    transform: none;
+}
+
+.form-status {
+    min-height: 1.4em;
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.thanks-page {
+    min-height: 100svh;
+}
+
+.thanks-section {
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 130px 20px 54px;
+    background:
+        linear-gradient(90deg, rgba(4, 4, 5, 0.92) 0%, rgba(4, 4, 5, 0.64) 48%, rgba(4, 4, 5, 0.24) 100%),
+        url("Landing-page/koningsdag.jpg") center / cover no-repeat;
+}
+
+.thanks-content {
+    width: min(680px, 100%);
+}
+
+.thanks-content h1 {
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 8vw, 6.8rem);
+    line-height: 0.88;
+}
+
+.thanks-content p:not(.eyebrow) {
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.thanks-content .button {
+    margin-top: 14px;
+}
+
 .footer {
     display: flex;
     align-items: center;
