@@ -864,30 +864,64 @@ h3 {
     .hero-section {
         min-height: 94svh;
         align-items: center;
-        padding: 124px 20px 58px;
+        padding: 128px 20px 64px;
         background:
-            linear-gradient(180deg, rgba(4, 4, 5, 0.34) 0%, rgba(4, 4, 5, 0.82) 68%, var(--bg) 100%),
-            url("Landing-page/koningsdag.jpg") 66% center / cover no-repeat;
+            linear-gradient(180deg, rgba(4, 4, 5, 0.18) 0%, rgba(4, 4, 5, 0.42) 36%, rgba(4, 4, 5, 0.9) 82%, var(--bg) 100%),
+            linear-gradient(90deg, rgba(4, 4, 5, 0.84) 0%, rgba(4, 4, 5, 0.48) 58%, rgba(4, 4, 5, 0.22) 100%),
+            url("Landing-page/koningsdag.jpg") 70% center / cover no-repeat;
+    }
+
+    .hero-content {
+        max-width: 330px;
+        transform: translateY(12px);
+    }
+
+    .hero-section .eyebrow {
+        max-width: 270px;
+        margin-bottom: 12px;
+        color: rgba(255, 180, 184, 0.82);
+        font-size: 0.66rem;
+        line-height: 1.55;
+        letter-spacing: 0.12em;
     }
 
     .hero-logo-title {
-        width: min(264px, 76vw);
-        margin-bottom: 12px;
+        width: min(224px, 66vw);
+        margin-bottom: 14px;
     }
 
     .hero-name {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
     }
 
     .hero-copy {
-        margin-bottom: 20px;
-        font-size: 1rem;
+        max-width: 310px;
+        margin-bottom: 22px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.96rem;
+        line-height: 1.45;
     }
 
     .hero-actions {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
         gap: 10px;
-        max-width: 300px;
+        max-width: 100%;
+    }
+
+    .hero-actions .button {
+        min-height: 42px;
+        padding: 11px 16px;
+    }
+
+    .hero-actions .button-primary {
+        min-width: 132px;
+    }
+
+    .hero-actions .button-secondary {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.18);
     }
 
     .scroll-cue {
